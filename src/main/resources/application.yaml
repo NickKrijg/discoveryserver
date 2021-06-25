@@ -12,5 +12,8 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-#    service-url:
-#      defaultZone: http://${eureka.instance.hostname}:8083/eureka
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8083/eureka
+  server:
+    max-threads-for-peer-replication: 0
+
