@@ -8,9 +8,9 @@ server:
 eureka:
   instance:
     preferIpAddress: true
-    hostname: host.docker.internal
+    hostname: registry
   client:
     register-with-eureka: false
     fetch-registry: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:8083/eureka
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:8083/eureka
