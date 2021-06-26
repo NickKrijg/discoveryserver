@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      containers:
+        - image: kwetteracr.azurecr.io/registry:latest
+          imagePullPolicy: Always
+          name: registry
+          ports:
+            - containerPort: 8083
+          resources: {}
+          env:
+            - name: EUREKA_INSTANCE_HOSTNAME
+              value: registry
+      imagePullSecrets:
+        - name: kwettersecret
+      restartPolicy: Always
+      serviceAccountName: ""
